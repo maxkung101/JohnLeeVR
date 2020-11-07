@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         
     }
 
-    private void ToStartingPosition()
+    public void ToStartingPosition()
     {
         switch(id)
         {
@@ -44,12 +44,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void ToFoyer()
+    public void ToFoyer()
     {
         transform.position = foyer;
     }
 
-    private void ToFrontYard()
+    public void ToFrontYard()
     {
         transform.position = frontYard;
     }
