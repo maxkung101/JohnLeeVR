@@ -8,14 +8,38 @@ public class Player : MonoBehaviour
     public Vector3 mannten, moncher, sharon;
 
     // Area coordinates
-    public Vector3 foyer, frontYard;
+    public Vector3 foyer, frontYard, mailbox;
+
+    // XR GUI
+    public GameObject bedroomUI, foyerUI, frontYardUI, mailboxUI;
+
+    // Mail letters
+    public GameObject forMannten, forMoncher, forSharon;
 
     private int id;
 
     // Start is called before the first frame update
     private void Start()
     {
+        forMannten.SetActive(false);
+        forMoncher.SetActive(false);
+        forSharon.SetActive(false);
         id = PlayerPrefs.GetInt("Player Id", 0);
+        switch(id)
+        {
+            case 1:
+                forMannten.SetActive(true);
+                break;
+            case 2:
+                forMoncher.SetActive(true);
+                break;
+            case 3:
+                forSharon.SetActive(true);
+                break;
+            default:
+                forMannten.SetActive(true);
+                break;
+        }
         ToStartingPosition();
     }
 
@@ -25,8 +49,18 @@ public class Player : MonoBehaviour
         
     }
 
+    private void AllOff()
+    {
+        bedroomUI.SetActive(false);
+        foyerUI.SetActive(false);
+        frontYardUI.SetActive(false);
+        mailboxUI.SetActive(false);
+    }
+
     public void ToStartingPosition()
     {
+        AllOff();
+        bedroomUI.SetActive(true);
         switch(id)
         {
             case 1:
@@ -46,11 +80,22 @@ public class Player : MonoBehaviour
 
     public void ToFoyer()
     {
+        AllOff();
+        foyerUI.SetActive(true);
         transform.position = foyer;
     }
 
     public void ToFrontYard()
     {
+        AllOff();
+        frontYardUI.SetActive(true);
         transform.position = frontYard;
+    }
+
+    public void ToMailbox()
+    {
+        AllOff();
+        mailboxUI.SetActive(true);
+        transform.position = mailbox;
     }
 }
