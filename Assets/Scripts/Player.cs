@@ -8,10 +8,10 @@ public class Player : MonoBehaviour
     public Vector3 mannten, moncher, sharon;
 
     // Area coordinates
-    public Vector3 foyer, frontYard, mailbox, tvRoom;
+    public Vector3 foyer, frontYard, mailbox, tvRoom, billardsRoom, kitchen, backyard;
 
     // XR GUI
-    public GameObject bedroomUI, foyerUI, frontYardUI, mailboxUI, tvRoomUI;
+    public GameObject bedroomUI, foyerUI, frontYardUI, mailboxUI, tvRoomUI, billardsRoomUI, kitchenUI, backyardUI;
 
     // Mail letters
     public GameObject forMannten, forMoncher, forSharon;
@@ -47,12 +47,6 @@ public class Player : MonoBehaviour
         ToStartingPosition();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        
-    }
-
     private void AllOff()
     {
         bedroomUI.SetActive(false);
@@ -60,6 +54,9 @@ public class Player : MonoBehaviour
         frontYardUI.SetActive(false);
         mailboxUI.SetActive(false);
         tvRoomUI.SetActive(false);
+        billardsRoomUI.SetActive(false);
+        kitchenUI.SetActive(false);
+        backyardUI.SetActive(false);
     }
 
     public void ToStartingPosition()
@@ -85,16 +82,16 @@ public class Player : MonoBehaviour
 
     public void ToFoyer()
     {
+        transform.position = foyer;
         AllOff();
         foyerUI.SetActive(true);
-        transform.position = foyer;
     }
 
     public void ToFrontYard()
     {
+        transform.position = frontYard;
         AllOff();
         frontYardUI.SetActive(true);
-        transform.position = frontYard;
         if (mailboxPost.GetComponent<BoxCollider>().enabled == false)
         {
             mailboxPost.GetComponent<BoxCollider>().enabled = true;
@@ -103,16 +100,37 @@ public class Player : MonoBehaviour
 
     public void ToMailbox()
     {
+        transform.position = mailbox;
         AllOff();
         mailboxPost.GetComponent<BoxCollider>().enabled = false;
         mailboxUI.SetActive(true);
-        transform.position = mailbox;
     }
 
     public void ToTvRoom()
     {
+        transform.position = tvRoom;
         AllOff();
         tvRoomUI.SetActive(true);
-        transform.position = tvRoom;
+    }
+
+    public void ToBillardsRoom()
+    {
+        transform.position = billardsRoom;
+        AllOff();
+        billardsRoomUI.SetActive(true);
+    }
+
+    public void ToKitchen()
+    {
+        transform.position = kitchen;
+        AllOff();
+        kitchenUI.SetActive(true);
+    }
+
+    public void ToBackyard()
+    {
+        transform.position = backyard;
+        AllOff();
+        backyardUI.SetActive(true);
     }
 }

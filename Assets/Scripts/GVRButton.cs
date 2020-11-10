@@ -25,6 +25,7 @@ public class GVRButton : MonoBehaviour
         if (gvrTimer > totalTime)
         {
             GVRClick.Invoke();
+            imgCircle.fillAmount = 0;
         }
     }
 
