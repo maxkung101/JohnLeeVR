@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         forMannten.SetActive(false);
         forMoncher.SetActive(false);
         forSharon.SetActive(false);
-        id = PlayerPrefs.GetInt("Player Id", 0);
+        id = PlayerPrefs.GetInt("John Lee VR - Player Id", 0);
         switch(id)
         {
             case 1:

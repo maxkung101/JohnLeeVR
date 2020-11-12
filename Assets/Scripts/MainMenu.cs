@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        PlayerPrefs.SetInt("Player Id", id);
+        PlayerPrefs.SetInt("John Lee VR - Player Id", id);
         SceneManager.LoadScene("SampleScene");
     }
 }
