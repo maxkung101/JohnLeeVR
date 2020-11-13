@@ -92,9 +92,9 @@ public class Player : MonoBehaviour
         transform.position = frontYard;
         AllOff();
         frontYardUI.SetActive(true);
-        if (mailboxPost.GetComponent<BoxCollider>().enabled == false)
+        if (!mailboxPost.gameObject.GetComponent<GVRButton>().GetButtonStats())
         {
-            mailboxPost.GetComponent<BoxCollider>().enabled = true;
+            mailboxPost.gameObject.GetComponent<GVRButton>().EnableButton();
         }
     }
 
@@ -102,8 +102,8 @@ public class Player : MonoBehaviour
     {
         transform.position = mailbox;
         AllOff();
-        mailboxPost.GetComponent<BoxCollider>().enabled = false;
         mailboxUI.SetActive(true);
+        mailboxPost.gameObject.GetComponent<GVRButton>().DisableButton();
     }
 
     public void ToTvRoom()

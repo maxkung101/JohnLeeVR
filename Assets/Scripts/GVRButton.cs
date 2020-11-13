@@ -11,12 +11,13 @@ public class GVRButton : MonoBehaviour
     public float totalTime = 3;
     public float gvrTimer;
 
-    private bool gvrStatus;
+    private bool gvrStatus, isEnabled;
 
     // Start is called before the first frame update
     private void Start()
     {
         gvrStatus = false;
+        isEnabled = true;
     }
 
     // Update is called once per frame
@@ -39,13 +40,34 @@ public class GVRButton : MonoBehaviour
 
     public void GvrOn()
     {
-        gvrStatus = true;
+        if (isEnabled)
+        {
+            gvrStatus = true;
+        }
     }
 
     public void GvrOff()
     {
-        gvrStatus = false;
-        gvrTimer = 0;
-        imgCircle.fillAmount = 0;
+        if (isEnabled)
+        {
+            gvrStatus = false;
+            gvrTimer = 0;
+            imgCircle.fillAmount = 0;
+        }
+    }
+
+    public bool GetButtonStats()
+    {
+        return isEnabled;
+    }
+
+    public void DisableButton()
+    {
+        isEnabled = false;
+    }
+
+    public void EnableButton()
+    {
+        isEnabled = true;
     }
 }
