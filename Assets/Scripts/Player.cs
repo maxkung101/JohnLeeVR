@@ -19,6 +19,12 @@ public class Player : MonoBehaviour
     // Object teleporters
     public GameObject mailboxPost;
 
+    // Audio objects
+    public GameObject johnToMannten, johnToMoncher, johnToSharon, johnInFrontYard;
+
+    // Audio sources
+    private AudioSource foyerAudio, frontYardAudio;
+
     // Character id
     private int id;
 
@@ -33,17 +39,22 @@ public class Player : MonoBehaviour
         {
             case 1:
                 forMannten.SetActive(true);
+                foyerAudio = johnToMannten.GetComponent<AudioSource>();
                 break;
             case 2:
                 forMoncher.SetActive(true);
+                foyerAudio = johnToMoncher.GetComponent<AudioSource>();
                 break;
             case 3:
                 forSharon.SetActive(true);
+                foyerAudio = johnToSharon.GetComponent<AudioSource>();
                 break;
             default:
                 forMannten.SetActive(true);
+                foyerAudio = johnToMannten.GetComponent<AudioSource>();
                 break;
         }
+        frontYardAudio = johnInFrontYard.GetComponent<AudioSource>();
         ToStartingPosition();
     }
 
@@ -85,6 +96,7 @@ public class Player : MonoBehaviour
         transform.position = foyer;
         AllOff();
         foyerUI.SetActive(true);
+        foyerAudio.Play();
     }
 
     public void ToFrontYard()
@@ -92,10 +104,11 @@ public class Player : MonoBehaviour
         transform.position = frontYard;
         AllOff();
         frontYardUI.SetActive(true);
-        if (!mailboxPost.gameObject.GetComponent<GVRButton>().GetButtonStats())
+        if (!mailboxPost.GetComponent<GVRButton>().GetButtonStats())
         {
-            mailboxPost.gameObject.GetComponent<GVRButton>().EnableButton();
+            mailboxPost.GetComponent<GVRButton>().EnableButton();
         }
+        frontYardAudio.Play();
     }
 
     public void ToMailbox()
@@ -103,7 +116,7 @@ public class Player : MonoBehaviour
         transform.position = mailbox;
         AllOff();
         mailboxUI.SetActive(true);
-        mailboxPost.gameObject.GetComponent<GVRButton>().DisableButton();
+        mailboxPost.GetComponent<GVRButton>().DisableButton();
     }
 
     public void ToTvRoom()

@@ -4,8 +4,29 @@
         {
             "name": "Gameplay",
             "id": "0edc44bd-717d-413a-a2ac-0f0bfd166f3c",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "Call",
+                    "type": "Button",
+                    "id": "010753ff-6581-4c72-8137-2b15b6c07e8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1396b0d5-01be-4027-9702-e7127af3361b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Call",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

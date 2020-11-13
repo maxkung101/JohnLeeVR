@@ -17,14 +17,36 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         {
             ""name"": ""Gameplay"",
             ""id"": ""0edc44bd-717d-413a-a2ac-0f0bfd166f3c"",
-            ""actions"": [],
-            ""bindings"": []
+            ""actions"": [
+                {
+                    ""name"": ""Call"",
+                    ""type"": ""Button"",
+                    ""id"": ""010753ff-6581-4c72-8137-2b15b6c07e8b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1396b0d5-01be-4027-9702-e7127af3361b"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Call"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
+        m_Gameplay_Call = m_Gameplay.FindAction("Call", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -74,10 +96,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     // Gameplay
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
+    private readonly InputAction m_Gameplay_Call;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
         public GameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Call => m_Wrapper.m_Gameplay_Call;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -87,15 +111,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
             {
+                @Call.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCall;
+                @Call.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCall;
+                @Call.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCall;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @Call.started += instance.OnCall;
+                @Call.performed += instance.OnCall;
+                @Call.canceled += instance.OnCall;
             }
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
     public interface IGameplayActions
     {
+        void OnCall(InputAction.CallbackContext context);
     }
 }
