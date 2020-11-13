@@ -13,6 +13,12 @@ public class GVRButton : MonoBehaviour
 
     private bool gvrStatus;
 
+    // Start is called before the first frame update
+    private void Start()
+    {
+        gvrStatus = false;
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -25,6 +31,8 @@ public class GVRButton : MonoBehaviour
         if (gvrTimer > totalTime)
         {
             GVRClick.Invoke();
+            gvrStatus = false;
+            gvrTimer = 0;
             imgCircle.fillAmount = 0;
         }
     }
