@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -56,6 +57,12 @@ public class Player : MonoBehaviour
         }
         frontYardAudio = johnInFrontYard.GetComponent<AudioSource>();
         ToStartingPosition();
+    }
+
+    public void HomeClick()
+    {
+        PlayerPrefs.SetInt("John Lee VR - Player Id", 0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void AllOff()

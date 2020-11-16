@@ -23,10 +23,4 @@ public class SkyView : MonoBehaviour
             RenderSettings.skybox = nighttime;
         }
     }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
-    }
 }
