@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public GameObject forMannten, forMoncher, forSharon;
 
     // Object teleporters
-    public GameObject mailboxPost, manntenHub, moncherHub, sharonHub;
+    public GameObject mailboxPost, manntenHub, moncherHub, sharonHub, pc1, pc2, pc3;
 
     // Audio objects
     public GameObject johnToMannten, johnToMoncher, johnToSharon, johnInFrontYard;
@@ -70,15 +70,85 @@ public class Player : MonoBehaviour
 
     private void AllOff()
     {
-        bedroomUI.SetActive(false);
-        foyerUI.SetActive(false);
-        frontYardUI.SetActive(false);
-        mailboxUI.SetActive(false);
-        tvRoomUI.SetActive(false);
-        billardsRoomUI.SetActive(false);
-        kitchenUI.SetActive(false);
-        backyardUI.SetActive(false);
-        phoneUI.SetActive(false);
+        if (mailboxPost.GetComponent<GVRButton>().GetButtonStats())
+        {
+            mailboxPost.GetComponent<GVRButton>().DisableButton();
+        }
+
+        if (pc1.GetComponent<GVRButton>().GetButtonStats())
+        {
+            pc1.GetComponent<GVRButton>().DisableButton();
+        }
+
+        if (pc2.GetComponent<GVRButton>().GetButtonStats())
+        {
+            pc2.GetComponent<GVRButton>().DisableButton();
+        }
+
+        if (pc3.GetComponent<GVRButton>().GetButtonStats())
+        {
+            pc3.GetComponent<GVRButton>().DisableButton();
+        }
+
+        if (manntenHub.GetComponent<GVRButton>().GetButtonStats())
+        {
+            manntenHub.GetComponent<GVRButton>().DisableButton();
+        }
+
+        if (moncherHub.GetComponent<GVRButton>().GetButtonStats())
+        {
+            moncherHub.GetComponent<GVRButton>().DisableButton();
+        }
+
+        if (sharonHub.GetComponent<GVRButton>().GetButtonStats())
+        {
+            sharonHub.GetComponent<GVRButton>().DisableButton();
+        }
+
+        if (bedroomUI.active)
+        {
+            bedroomUI.SetActive(false);
+        }
+
+        if (foyerUI.active)
+        {
+            foyerUI.SetActive(false);
+        }
+
+        if (frontYardUI.active)
+        {
+            frontYardUI.SetActive(false);
+        }
+
+        if (mailboxUI.active)
+        {
+            mailboxUI.SetActive(false);
+        }
+
+        if (tvRoomUI.active)
+        {
+            tvRoomUI.SetActive(false);
+        }
+
+        if (billardsRoomUI.active)
+        {
+            billardsRoomUI.SetActive(false);
+        }
+
+        if (kitchenUI.active)
+        {
+            kitchenUI.SetActive(false);
+        }
+
+        if (backyardUI.active)
+        {
+            backyardUI.SetActive(false);
+        }
+
+        if (phoneUI.active)
+        {
+            phoneUI.SetActive(false);
+        }
     }
 
     public void ToStartingPosition()
@@ -89,15 +159,23 @@ public class Player : MonoBehaviour
         {
             case 1:
                 transform.position = mannten;
+                pc1.GetComponent<GVRButton>().EnableButton();
+                manntenHub.GetComponent<GVRButton>().EnableButton();
                 break;
             case 2:
                 transform.position = moncher;
+                pc2.GetComponent<GVRButton>().EnableButton();
+                moncherHub.GetComponent<GVRButton>().EnableButton();
                 break;
             case 3:
                 transform.position = sharon;
+                pc3.GetComponent<GVRButton>().EnableButton();
+                sharonHub.GetComponent<GVRButton>().EnableButton();
                 break;
             default:
                 transform.position = mannten;
+                pc1.GetComponent<GVRButton>().EnableButton();
+                manntenHub.GetComponent<GVRButton>().EnableButton();
                 break;
         }
     }
@@ -136,10 +214,7 @@ public class Player : MonoBehaviour
         transform.position = frontYard;
         AllOff();
         frontYardUI.SetActive(true);
-        if (!mailboxPost.GetComponent<GVRButton>().GetButtonStats())
-        {
-            mailboxPost.GetComponent<GVRButton>().EnableButton();
-        }
+        mailboxPost.GetComponent<GVRButton>().EnableButton();
         frontYardAudio.Play();
     }
 
@@ -148,7 +223,6 @@ public class Player : MonoBehaviour
         transform.position = mailbox;
         AllOff();
         mailboxUI.SetActive(true);
-        mailboxPost.GetComponent<GVRButton>().DisableButton();
     }
 
     public void ToTvRoom()
