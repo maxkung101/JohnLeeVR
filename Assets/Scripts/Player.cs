@@ -8,17 +8,20 @@ public class Player : MonoBehaviour
     // Player's room coordinates
     public Vector3 mannten, moncher, sharon;
 
+    // Player's phone coordinates
+    public Vector3 manntenPhone, moncherPhone, sharonPhone;
+
     // Area coordinates
     public Vector3 foyer, frontYard, mailbox, tvRoom, billardsRoom, kitchen, backyard;
 
     // XR GUI
-    public GameObject bedroomUI, foyerUI, frontYardUI, mailboxUI, tvRoomUI, billardsRoomUI, kitchenUI, backyardUI;
+    public GameObject bedroomUI, foyerUI, frontYardUI, mailboxUI, tvRoomUI, billardsRoomUI, kitchenUI, backyardUI, phoneUI;
 
     // Mail letters
     public GameObject forMannten, forMoncher, forSharon;
 
     // Object teleporters
-    public GameObject mailboxPost;
+    public GameObject mailboxPost, manntenHub, moncherHub, sharonHub;
 
     // Audio objects
     public GameObject johnToMannten, johnToMoncher, johnToSharon, johnInFrontYard;
@@ -75,6 +78,7 @@ public class Player : MonoBehaviour
         billardsRoomUI.SetActive(false);
         kitchenUI.SetActive(false);
         backyardUI.SetActive(false);
+        phoneUI.SetActive(false);
     }
 
     public void ToStartingPosition()
@@ -94,6 +98,27 @@ public class Player : MonoBehaviour
                 break;
             default:
                 transform.position = mannten;
+                break;
+        }
+    }
+
+    public void ToPhone()
+    {
+        AllOff();
+        phoneUI.SetActive(true);
+        switch(id)
+        {
+            case 1:
+                transform.position = manntenPhone;
+                break;
+            case 2:
+                transform.position = moncherPhone;
+                break;
+            case 3:
+                transform.position = sharonPhone;
+                break;
+            default:
+                transform.position = manntenPhone;
                 break;
         }
     }
