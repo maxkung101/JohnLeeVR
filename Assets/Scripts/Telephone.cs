@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Telephone : MonoBehaviour
 {
-    public static Telephone instance;
-
     private AudioSource source;
     private bool isRinging, isActive;
 
