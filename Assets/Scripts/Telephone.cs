@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Telephone : MonoBehaviour
 {
     public GameObject hub1, hub2, hub3;
     public Material newMaterialOn, newMaterialOff;
+    public AudioClip audioClip;
 
     private PlayerControls controls;
     private AudioSource source;
     private bool isRinging, isActive;
+    private string selectedDevice;
 
     private void Awake()
     {
@@ -23,6 +26,7 @@ public class Telephone : MonoBehaviour
         source = GetComponent<AudioSource>();
         isRinging = false;
         isActive = false;
+        selectedDevice = Microphone.devices[0].ToString();
     }
 
     private void CallPhone()
@@ -69,6 +73,8 @@ public class Telephone : MonoBehaviour
         hub1.GetComponent<Renderer>().material = newMaterialOn;
         hub2.GetComponent<Renderer>().material = newMaterialOn;
         hub3.GetComponent<Renderer>().material = newMaterialOn;
+        source.clip = Microphone.Start(selectedDevice, true, 10, AudioSettings.outputSampleRate);
+        source.Play();
     }
 
     public void HangUp()
@@ -77,6 +83,7 @@ public class Telephone : MonoBehaviour
         hub1.GetComponent<Renderer>().material = newMaterialOff;
         hub2.GetComponent<Renderer>().material = newMaterialOff;
         hub3.GetComponent<Renderer>().material = newMaterialOff;
+        source.clip = audioClip;
     }
 
     private void OnEnable()
