@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class MicPhone : MonoBehaviour
 {
-    private Vector3 activePosition, inactivePosition;
-    private Quaternion activeRotation, inactiveRotation;
+    public GameObject mic, xMic;
 
     // Start is called before the first frame update
     private void Start()
     {
-        inactivePosition = transform.position;
-        inactiveRotation = transform.rotation;
-        activePosition = new Vector3(transform.position.x + 11.05f, transform.position.y + 4.6383f, transform.position.z + 15.83f);
-        activeRotation = Quaternion.Euler(transform.rotation.x + 90f, transform.rotation.y + 180f, transform.rotation.z);
+        xMic.SetActive(false);
     }
 
     public void PhoneOn()
     {
-        transform.position = activePosition;
-        transform.rotation = activeRotation;
+        mic.SetActive(false);
+        xMic.SetActive(true);
     }
 
     public void PhoneOff()
     {
-        transform.position = inactivePosition;
-        transform.rotation = inactiveRotation;
+        mic.SetActive(true);
+        xMic.SetActive(false);
     }
 }
