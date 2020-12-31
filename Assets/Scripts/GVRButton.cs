@@ -38,7 +38,7 @@ public class GVRButton : MonoBehaviour
         }
     }
 
-    public void GvrOn()
+    public void OnPointerEnter()
     {
         if (isEnabled)
         {
@@ -46,7 +46,7 @@ public class GVRButton : MonoBehaviour
         }
     }
 
-    public void GvrOff()
+    public void OnPointerExit()
     {
         if (isEnabled)
         {
