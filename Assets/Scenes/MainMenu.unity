@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 192264284}
   - component: {fileID: 192264286}
   - component: {fileID: 192264285}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: GazeTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 604285384}
   - component: {fileID: 604285387}
   - component: {fileID: 604285386}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2137376960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebfb4b86b2e54606894da54f755db2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a1083b55862483428585e3fbba414e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2137376963
