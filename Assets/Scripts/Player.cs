@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
         ToStartingPosition();
     }
 
+    // Go back to the main menu
     public void HomeClick()
     {
         PlayerPrefs.SetInt("John Lee VR - Player Id", 0);
@@ -105,52 +106,53 @@ public class Player : MonoBehaviour
             sharonHub.GetComponent<GVRButton>().DisableButton();
         }
 
-        if (bedroomUI.active)
+        if (bedroomUI.activeSelf)
         {
             bedroomUI.SetActive(false);
         }
 
-        if (foyerUI.active)
+        if (foyerUI.activeSelf)
         {
             foyerUI.SetActive(false);
         }
 
-        if (frontYardUI.active)
+        if (frontYardUI.activeSelf)
         {
             frontYardUI.SetActive(false);
         }
 
-        if (mailboxUI.active)
+        if (mailboxUI.activeSelf)
         {
             mailboxUI.SetActive(false);
         }
 
-        if (tvRoomUI.active)
+        if (tvRoomUI.activeSelf)
         {
             tvRoomUI.SetActive(false);
         }
 
-        if (billardsRoomUI.active)
+        if (billardsRoomUI.activeSelf)
         {
             billardsRoomUI.SetActive(false);
         }
 
-        if (kitchenUI.active)
+        if (kitchenUI.activeSelf)
         {
             kitchenUI.SetActive(false);
         }
 
-        if (backyardUI.active)
+        if (backyardUI.activeSelf)
         {
             backyardUI.SetActive(false);
         }
 
-        if (phoneUI.active)
+        if (phoneUI.activeSelf)
         {
             phoneUI.SetActive(false);
         }
     }
 
+    // Go to the player's room
     public void ToStartingPosition()
     {
         AllOff();
@@ -180,6 +182,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Answer the phone
     public void ToPhone()
     {
         AllOff();
@@ -201,6 +204,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Go to the foyer
     public void ToFoyer()
     {
         transform.position = foyer;
@@ -209,6 +213,7 @@ public class Player : MonoBehaviour
         foyerAudio.Play();
     }
 
+    // Go to the front yard
     public void ToFrontYard()
     {
         transform.position = frontYard;
@@ -218,6 +223,7 @@ public class Player : MonoBehaviour
         frontYardAudio.Play();
     }
 
+    // Read mail
     public void ToMailbox()
     {
         transform.position = mailbox;
@@ -225,6 +231,7 @@ public class Player : MonoBehaviour
         mailboxUI.SetActive(true);
     }
 
+    // Go to the TV room
     public void ToTvRoom()
     {
         transform.position = tvRoom;
@@ -232,6 +239,7 @@ public class Player : MonoBehaviour
         tvRoomUI.SetActive(true);
     }
 
+    // Go to the rec room
     public void ToBillardsRoom()
     {
         transform.position = billardsRoom;
@@ -239,6 +247,7 @@ public class Player : MonoBehaviour
         billardsRoomUI.SetActive(true);
     }
 
+    // Go to the kitchen
     public void ToKitchen()
     {
         transform.position = kitchen;
@@ -246,6 +255,7 @@ public class Player : MonoBehaviour
         kitchenUI.SetActive(true);
     }
 
+    // Go to the backyard
     public void ToBackyard()
     {
         transform.position = backyard;

@@ -39,7 +39,7 @@ public class GVRButton : MonoBehaviour
     }
 
     // This method is called by the Main Camera when it starts gazing at this GameObject.
-    public void OnPointerEnter()
+    private void OnPointerEnter()
     {
         if (isEnabled)
         {
@@ -48,7 +48,7 @@ public class GVRButton : MonoBehaviour
     }
 
     // This method is called by the Main Camera when it stops gazing at this GameObject.
-    public void OnPointerExit()
+    private void OnPointerExit()
     {
         if (isEnabled)
         {
