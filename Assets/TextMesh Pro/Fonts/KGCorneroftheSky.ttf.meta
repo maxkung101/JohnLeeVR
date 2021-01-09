@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a2b9e2a607dd2143b58c44bc32410b4
+guid: 6ddcb6e780ec3f94dbf5afb178307126
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,8 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Electronic Highway Sign
   fontNames:
-  - Electronic Highway Sign
+  - KG Corner of the Sky
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
