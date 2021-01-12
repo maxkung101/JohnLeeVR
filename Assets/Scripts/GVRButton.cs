@@ -8,8 +8,7 @@ public class GVRButton : MonoBehaviour
 {
     public Image imgCircle;
     public UnityEvent GVRClick;
-    public float totalTime = 3;
-    public float gvrTimer;
+    public float totalTime = 3, gvrTimer;
 
     private bool gvrStatus, isEnabled;
 
