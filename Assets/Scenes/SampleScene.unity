@@ -16520,7 +16520,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   daytime: {fileID: 2100000, guid: 3e5399bd195de7649b874f58c1b9f8a3, type: 2}
+  sunset: {fileID: 2100000, guid: cede08c9fc471e64884909cd4bbeaf59, type: 2}
   nighttime: {fileID: 2100000, guid: f531e09e2ad2fb440b4eed7605863143, type: 2}
+  dawn: {fileID: 2100000, guid: 85cf0b004bc4a654b9e501efcce47902, type: 2}
 --- !u!1 &829301061
 GameObject:
   m_ObjectHideFlags: 0
